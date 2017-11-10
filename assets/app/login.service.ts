@@ -10,7 +10,7 @@ export class LoginService {
 
     constructor(private http: Http) {}
     addUser(data: Login) {
-        const body = JSON.stringify();
+        const body = JSON.stringify(data);
         this.http.post("http://localhost:3000/", body)
             .map((response: Response) => response.json())
             .catch((error:Response) => Observable.throw(error.json()))
