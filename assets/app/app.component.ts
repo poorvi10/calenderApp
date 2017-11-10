@@ -34,7 +34,11 @@ export class AppComponent implements OnInit {
       //Using Angular2 Zone dependency to manage the scope of variables
       this.zone.run(() => {
         const user = new Login(localStorage.getItem('name'),localStorage.getItem('email'), localStorage.getItem('token'),localStorage.getItem('image'));
-        this.loginService.addUser(user);
+        this.loginService.addUser(user)
+            .subscribe(
+              data => console.log(data),
+              error => console.log(error)
+            );
       });
     });
   }

@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    console.log(res.body.token);
+  
     var user = new User({
         token: req.body.token,
         image: req.body.image,
