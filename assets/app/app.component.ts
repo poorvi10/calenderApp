@@ -2,6 +2,9 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { AuthService, AppGlobals } from 'angular2-google-login';
 import {LoginService} from './login.service';
 import {Login} from './login.model';
+import { Router} from '@angular/router';
+
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -14,7 +17,7 @@ export class AppComponent implements OnInit {
   token: string;
   user: Login;
 
-  constructor(private auth: AuthService, private zone: NgZone, private loginService: LoginService) { }
+  constructor(private router: Router, private auth: AuthService, private zone: NgZone, private loginService: LoginService) { }
 
   /**
    * Ininitalizing Google Authentication API and getting data from localstorage if logged in
@@ -27,18 +30,20 @@ export class AppComponent implements OnInit {
   }
 
   /*01
-  
+
    * Calling Google Authentication service
    */
   googleAuthenticate() {
     this.auth.authenticateUser((result) => {
-      this.getData();
       //Using Angular2 Zone dependency to manage the scope of variables
       this.zone.run(() => {
         const user = new Login(localStorage.getItem('name'),localStorage.getItem('email'), localStorage.getItem('token'),localStorage.getItem('image'));
         this.loginService.addUser(user)
             .subscribe(
-              data => console.log(data),
+              data => {
+                this.getData();
+                this.router.navigate(['/home']);
+              },
               error => console.log(error)
             );
       });
