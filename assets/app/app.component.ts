@@ -26,11 +26,13 @@ export class AppComponent implements OnInit {
     setTimeout(() => { this.googleAuthenticate() }, 50);
   }
 
-  /**
+  /*01
+  
    * Calling Google Authentication service
    */
   googleAuthenticate() {
     this.auth.authenticateUser((result) => {
+      this.getData();
       //Using Angular2 Zone dependency to manage the scope of variables
       this.zone.run(() => {
         const user = new Login(localStorage.getItem('name'),localStorage.getItem('email'), localStorage.getItem('token'),localStorage.getItem('image'));
