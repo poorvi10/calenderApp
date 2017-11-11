@@ -18,7 +18,7 @@ router.post('/', function (req, res, next) {
     user.save(function(err, result) {
         if(err) {
             if (err.code == 11000) {
-                res.status(201).json({
+                return res.status(201).json({
                     message: "User credentials saved",
                     obj: result
                 });

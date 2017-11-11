@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
    */
   ngOnInit() {
     //Set your Google Client ID here
-    AppGlobals.GOOGLE_CLIENT_ID = '1078031504858-hkj464s7kmq3kbku9bn1pjcteehatkui.apps.googleusercontent.com';
+    AppGlobals.GOOGLE_CLIENT_ID = '970384031820-f0aass0u04du9s47c7u595r1ihma8kea.apps.googleusercontent.com';
     this.getData();
     setTimeout(() => { this.googleAuthenticate() }, 50);
   }

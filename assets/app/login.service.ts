@@ -11,7 +11,7 @@ export class LoginService {
     addUser(data: Login) {
         const body = JSON.stringify(data);
         const headers = new Headers({'Content-Type':'application/json'});
-        return this.http.post("http://localhost:3000/", body, {headers:headers})
+        return this.http.post("http://localhost:4200/", body, {headers:headers})
             .map((response: Response) => response.json())
             .catch((error:Response) => Observable.throw(error.json()))
     }

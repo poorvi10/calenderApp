@@ -7,7 +7,7 @@ import { Router} from '@angular/router';
 @Component({
   selector: 'my-home',
   template: `<div *ngIf="token">
-              <imrc="{{imageURL}}">
+              <img src="{{imageURL}}">
               <br>
               <b>TOKEN: </b>
               <p>{{token}}</p>

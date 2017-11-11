@@ -15,7 +15,6 @@ export const ROUTES: Routes = [
     {path: 'home', component: HomeComponent}
 ];
 
-
 @NgModule({
     declarations: [
         AppComponent,
