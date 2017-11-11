@@ -6,7 +6,7 @@ var schema = new Schema({
     token: {type:String, required: true},
     image: {type:String, required: true},
     name:  {type:String, required: true},
-    email: {type:String, required: true, unique:true}
+    email: {type:String, required: true}
 })
 schema.plugin(mongooseUniqueValidator);
 
